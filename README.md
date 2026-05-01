@@ -2,6 +2,11 @@
 
 A single-page, 3D-enhanced developer portfolio for Dominic Rohan. Built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, GSAP ScrollTrigger, and Three.js (@react-three/fiber + @react-three/drei). The site is responsive, accessible, and deployable as a static site (Vercel, Netlify, GitHub Pages).
 
+## Preview Iamges
+
+<img width="1728" height="908" alt="Screenshot 2026-04-30 at 9 43 39 PM" src="https://github.com/user-attachments/assets/a5192ef0-4bfd-46c4-b7d1-0661aac5491a" />
+<img width="1728" height="911" alt="Screenshot 2026-04-30 at 9 44 31 PM" src="https://github.com/user-attachments/assets/beb72efb-cc15-461e-afd9-ac4efe573aa3" />
+
 ## Tech Stack
 - React 18 + TypeScript + Vite
 - Tailwind CSS for theming and layout
