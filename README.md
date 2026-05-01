@@ -5,6 +5,7 @@ A single-page, 3D-enhanced developer portfolio for Dominic Rohan. Built with Rea
 ## Preview Iamges
 
 <img width="1728" height="908" alt="Screenshot 2026-04-30 at 9 43 39 PM" src="https://github.com/user-attachments/assets/a5192ef0-4bfd-46c4-b7d1-0661aac5491a" />
+
 <img width="1728" height="911" alt="Screenshot 2026-04-30 at 9 44 31 PM" src="https://github.com/user-attachments/assets/beb72efb-cc15-461e-afd9-ac4efe573aa3" />
 
 ## Tech Stack
