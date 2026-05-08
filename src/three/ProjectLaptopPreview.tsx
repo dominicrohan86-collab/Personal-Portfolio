@@ -55,8 +55,21 @@ const Laptop = (props: LaptopSceneProps) => {
 
   const responsiveScale = useMemo(() => {
     const stableWidth = Math.round(size.width / 50) * 50;
+
+    if (size.height >= 500) {
+      return MathUtils.clamp(stableWidth / 72, 5.8, 10.6);
+    }
+
+    if (stableWidth < 480) {
+      return MathUtils.clamp(stableWidth / 40, 8.3, 9.3);
+    }
+
+    if (stableWidth < 768) {
+      return MathUtils.clamp(stableWidth / 52, 8.3, 10);
+    }
+
     return MathUtils.clamp(stableWidth / 72, 5.8, 10.6);
-  }, [size.width]);
+  }, [size.height, size.width]);
 
   const responsiveY = useMemo(() => {
     return MathUtils.clamp(-0.42 + size.width / 5200, -0.36, -0.16);
@@ -271,12 +284,12 @@ export const ProjectLaptopPreview = (props: ProjectLaptopPreviewProps) => {
 
   return (
     <div
-      className="relative w-full overflow-hidden md:block md:h-[520px] lg:h-[clamp(560px,46vw,720px)] xl:h-[clamp(600px,42vw,780px)]"
+      className="relative h-[340px] w-full overflow-hidden sm:h-[420px] md:h-[520px] lg:h-[clamp(560px,46vw,720px)] xl:h-[clamp(600px,42vw,780px)]"
       aria-label={`${props.title} conceptual laptop preview`}
       role="img"
     >
       <div
-        className="pointer-events-none absolute inset-x-8 bottom-10 h-px bg-accent/30"
+        className="pointer-events-none absolute inset-x-6 bottom-6 h-px bg-accent/30 sm:inset-x-8 sm:bottom-10"
         aria-hidden
       />
       <Canvas

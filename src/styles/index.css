@@ -5,7 +5,7 @@
 :root {
   --color-canvas: 218 24% 7%;
   --color-foreground: 220 14% 96%;
-  --color-accent: 178 100% 66%;
+  --color-accent: 210 90% 60%;
   --color-signal: 42 100% 66%;
   --color-muted: 215 16% 20%;
   --color-card: 218 18% 12%;
@@ -15,7 +15,7 @@
 :root.light {
   --color-canvas: 220 16% 96%;
   --color-foreground: 215 18% 12%;
-  --color-accent: 188 82% 44%;
+  --color-accent: 214 82% 42%;
   --color-signal: 38 92% 48%;
   --color-muted: 210 14% 85%;
   --color-card: 0 0% 100%;
