@@ -108,7 +108,7 @@ export const profile: Profile = {
       period: '2024 - Present',
       summary:
         'Automates security and readiness checks before releases to GovCloud workloads.',
-      screenImage: 'src/public/arr-preview.png',
+      screenImage: '/arr-preview.png',
       problem:
         'Manual readiness reviews were slowing delivery and left room for missed security/control gates before deploying sensitive workloads.',
       solution:
@@ -141,7 +141,7 @@ export const profile: Profile = {
       period: '2024 - Present',
       summary:
         'Secure, cloud-native authorization workflow enabling temporary privileged access across AWS GovCloud.',
-      screenImage: 'src/public/jit-access-preview.png',
+      screenImage: '/jit-access-preview.png',
       problem:
         'Teams needed auditable, time-bound privileged access without compromising CAC-based identity assurance across GovCloud.',
       solution:
@@ -175,7 +175,7 @@ export const profile: Profile = {
       period: '2024 - Present',
       summary:
         'Event-driven billing pipeline for cost ingestion, surplus allocation, and reporting.',
-      screenImage: 'src/public/billing-microservice-preview.png',
+      screenImage: '/billing-microservice-preview.png',
       problem:
         'Needed reliable visibility into daily commercial cloud spend with automated reconciliation across teams and services.',
       solution:
