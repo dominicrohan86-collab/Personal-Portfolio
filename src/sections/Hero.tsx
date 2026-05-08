@@ -1,38 +1,47 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Download, Mail } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { Badge } from '../components/ui/Badge';
-import { TypingText } from '../components/ui/TypingText';
 import { profile } from '../data/profile';
 import { TerminalPanel } from '../components/TerminalPanel';
-import { cn } from '../utils/cn';
 
 export const Hero = () => {
   const [firstName, ...rest] = profile.name.split(' ');
   const lastName = rest.join(' ');
 
   return (
-    <section id="hero" className="relative overflow-hidden pb-16 pt-12 sm:pt-16">
-      <div className="absolute inset-0 -z-10 opacity-60">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(110,241,245,0.12),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(110,241,245,0.08),transparent_30%)]" />
+    <section
+      id="hero"
+      className="relative overflow-hidden pb-16 pt-12 sm:pb-24 sm:pt-20"
+    >
+      <div className="absolute inset-x-0 top-0 -z-10 h-full opacity-70">
+        <div className="pointer-events-none absolute inset-0 bg-card/20" />
       </div>
-      <div className="container relative z-10 grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
-        <div className="space-y-6">
-          <div className="space-y-3">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent/80">
-              Hi there <span aria-hidden>👋</span> I&apos;m
+      <div className="container relative z-10 grid max-w-6xl gap-10 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+        <motion.div
+          className="flex h-full flex-col justify-center space-y-7"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase text-accent/80">
+                Hi there <span aria-hidden>👋</span> I&apos;m
+              </p>
+              <h1 className="max-w-4xl font-display text-5xl font-bold leading-[0.96] sm:text-7xl lg:text-8xl">
+                {firstName}
+                <br />
+                {lastName}
+              </h1>
+              <p className="text-base font-semibold uppercase text-signal">
+                {profile.headline}
+              </p>
+            </div>
+            <p className="max-w-3xl font-display text-xl font-semibold leading-tight text-canvas-foreground/90 sm:text-2xl">
+              {profile.heroTitle}
             </p>
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              {firstName}
-              <br />
-              {lastName}
-            </h1>
-            <p className="text-lg font-semibold uppercase tracking-[0.12em] text-accent">
-              Full Stack Web + Cloud Developer
-            </p>
-            <p className="text-sm text-canvas-foreground/80">{profile.heroSubtitle}</p>
-            <p className="font-mono text-sm text-accent">
-              <TypingText text={profile.heroCommand} />
+            <p className="max-w-2xl text-base leading-8 text-canvas-foreground/80 sm:text-lg">
+              {profile.heroSubtitle}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -42,24 +51,37 @@ export const Hero = () => {
                 View Projects
               </a>
             </Button>
-            <Button variant="secondary" asChild>
-              <a href="#contact" className="flex items-center gap-2">
-                <Mail size={16} />
-                Contact
-              </a>
-            </Button>
             <Button variant="outline" asChild>
-              <a href="/Dominic_Rohan_Resume.pdf" download className="flex items-center gap-2">
+              <a
+                href="/Dominic_Rohan_Resume.pdf"
+                download
+                className="flex items-center gap-2"
+              >
                 <Download size={16} />
                 Download Resume
               </a>
             </Button>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-canvas-foreground/80 hover:text-accent focus-ring"
+            >
+              <Mail size={16} />
+              Contact Me
+            </a>
           </div>
-        </div>
-        <div className="relative">
-          <div className={cn('absolute -left-6 -top-6 h-20 w-20 rounded-full bg-accent/20 blur-3xl')} aria-hidden />
+        </motion.div>
+        <motion.div
+          className="relative lg:ml-auto lg:w-full lg:max-w-[520px]"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
+          <div
+            className="absolute -right-3 -top-3 h-full w-full border border-signal/25"
+            aria-hidden
+          />
           <TerminalPanel />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

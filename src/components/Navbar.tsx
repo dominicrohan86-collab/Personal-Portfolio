@@ -8,9 +8,9 @@ import { AccentPicker } from './ui/AccentPicker';
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'case-studies', label: 'Case Study' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
   { id: 'certifications', label: 'Credentials' },
   { id: 'contact', label: 'Contact' }
 ];
@@ -27,18 +27,22 @@ export const Navbar = () => {
             DR
           </div>
           <div className="hidden sm:block">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent/80">Software Developer</p>
+            <p className="text-xs font-semibold uppercase text-accent/80">
+              GovCloud Automation
+            </p>
             <p className="font-semibold">Dominic Rohan</p>
           </div>
         </div>
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               className={cn(
                 'rounded-full px-3 py-2 text-sm transition-colors focus-ring',
-                activeId === item.id ? 'text-accent bg-accent/10' : 'text-canvas-foreground/80 hover:text-accent'
+                activeId === item.id
+                  ? 'text-accent bg-accent/10'
+                  : 'text-canvas-foreground/80 hover:text-accent'
               )}
             >
               {item.label}
@@ -47,7 +51,7 @@ export const Navbar = () => {
           <AccentPicker />
           <ThemeToggle />
         </nav>
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
             onClick={() => setOpen((prev) => !prev)}
@@ -58,7 +62,12 @@ export const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className={cn('md:hidden transition-[max-height] duration-300 overflow-hidden', open ? 'max-h-96' : 'max-h-0')}>
+      <div
+        className={cn(
+          'lg:hidden transition-[max-height] duration-300 overflow-hidden',
+          open ? 'max-h-[32rem]' : 'max-h-0'
+        )}
+      >
         <div className="container flex flex-col gap-2 pb-4">
           {navItems.map((item) => (
             <a
@@ -67,7 +76,9 @@ export const Navbar = () => {
               onClick={() => setOpen(false)}
               className={cn(
                 'rounded-lg px-3 py-2 text-sm focus-ring',
-                activeId === item.id ? 'bg-accent/10 text-accent' : 'bg-card/70 text-canvas-foreground/80'
+                activeId === item.id
+                  ? 'bg-accent/10 text-accent'
+                  : 'bg-card/70 text-canvas-foreground/80'
               )}
             >
               {item.label}

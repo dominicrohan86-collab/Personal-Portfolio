@@ -10,7 +10,20 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['"DM Mono"', 'Menlo', 'SFMono-Regular', 'ui-monospace', 'monospace']
+        display: [
+          '"SF Pro Display"',
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          'sans-serif'
+        ],
+        mono: [
+          '"DM Mono"',
+          'Menlo',
+          'SFMono-Regular',
+          'ui-monospace',
+          'monospace'
+        ]
       },
       colors: {
         canvas: {
@@ -18,6 +31,7 @@ module.exports = {
           foreground: 'hsl(var(--color-foreground) / <alpha-value>)'
         },
         accent: 'hsl(var(--color-accent) / <alpha-value>)',
+        signal: 'hsl(var(--color-signal) / <alpha-value>)',
         muted: 'hsl(var(--color-muted) / <alpha-value>)',
         card: 'hsl(var(--color-card) / <alpha-value>)',
         border: 'hsl(var(--color-border) / <alpha-value>)'
@@ -27,7 +41,8 @@ module.exports = {
         card: '0 10px 30px rgba(0,0,0,0.25)'
       },
       backgroundImage: {
-        'grid-small': 'linear-gradient(to right, hsla(var(--color-border) / 0.35) 1px, transparent 1px), linear-gradient(to bottom, hsla(var(--color-border) / 0.35) 1px, transparent 1px)'
+        'grid-small':
+          'linear-gradient(to right, hsla(var(--color-border) / 0.35) 1px, transparent 1px), linear-gradient(to bottom, hsla(var(--color-border) / 0.35) 1px, transparent 1px)'
       },
       keyframes: {
         float: {

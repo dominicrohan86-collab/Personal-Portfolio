@@ -7,10 +7,14 @@ type BadgeProps = {
   className?: string;
 };
 
-export const Badge = ({ children, variant = 'default', className }: BadgeProps) => (
+export const Badge = ({
+  children,
+  variant = 'default',
+  className
+}: BadgeProps) => (
   <span
     className={cn(
-      'inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide',
+      'inline-flex items-center gap-1 rounded-md px-3 py-1 text-xs font-semibold uppercase',
       variant === 'outline'
         ? 'border border-accent/50 text-accent bg-transparent'
         : 'bg-accent/20 text-accent border border-accent/20',

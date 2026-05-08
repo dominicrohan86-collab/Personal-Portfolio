@@ -11,7 +11,13 @@ type ModalProps = {
   className?: string;
 };
 
-export const Modal = ({ open, onClose, title, children, className }: ModalProps) => (
+export const Modal = ({
+  open,
+  onClose,
+  title,
+  children,
+  className
+}: ModalProps) => (
   <AnimatePresence>
     {open ? (
       <motion.div
@@ -23,7 +29,10 @@ export const Modal = ({ open, onClose, title, children, className }: ModalProps)
         aria-modal="true"
       >
         <motion.div
-          className={cn('glass relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-2xl p-6', className)}
+          className={cn(
+            'glass relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-lg p-6',
+            className
+          )}
           initial={{ scale: 0.95, opacity: 0, y: 10 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.98, opacity: 0, y: 10 }}
@@ -31,13 +40,15 @@ export const Modal = ({ open, onClose, title, children, className }: ModalProps)
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute right-4 top-4 rounded-full border border-border bg-card/60 p-2 text-sm text-canvas-foreground hover:text-accent focus-ring"
+            className="absolute right-4 top-4 rounded-md border border-border bg-card/60 p-2 text-sm text-canvas-foreground hover:text-accent focus-ring"
           >
             <X size={16} />
           </button>
           <div className="mb-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-accent/70">Project</p>
-            <h3 className="text-2xl font-semibold">{title}</h3>
+            <p className="text-xs font-semibold uppercase text-accent/70">
+              Project
+            </p>
+            <h3 className="font-display text-2xl font-semibold">{title}</h3>
           </div>
           {children}
         </motion.div>

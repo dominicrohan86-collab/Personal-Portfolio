@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePrefersReducedMotion } from '../utils/usePrefersReducedMotion';
 import { cn } from '../utils/cn';
-import { useTheme } from '../utils/theme';
 
 type ScriptLine = {
   prompt: string;
@@ -17,24 +16,28 @@ const scripts: ScriptLine[] = [
   { prompt: '$', text: 'pnpm whoami' },
   {
     prompt: '>',
-    text: 'Lead developer on secure cloud-native workflows and event-driven services.'
+    text: 'Full-stack developer building secure cloud workflows and automation tools.'
   },
   {
     prompt: '>',
-    text: 'Top Secret clearance, building in AWS and AWS GovCloud.'
+    text: 'Strategic Business Systems · AWS GovCloud · Azure · Wiz · secure UX.'
   },
   { prompt: '$', text: 'pnpm load projects' },
   {
     prompt: '>',
-    text: 'COSMOS JIT Access — mTLS + CAC auth, tRPC services, full auditability.'
+    text: 'COSMOS JIT Access - mTLS + CAC auth, tRPC services, full auditability.'
   },
   {
     prompt: '>',
-    text: 'Billing Microservice — Lambda/SQS/API Gateway + Aurora for daily cost ingestion.'
+    text: 'Billing Microservice - Lambda/SQS/API Gateway + Aurora for daily cost ingestion.'
   },
   {
     prompt: '>',
-    text: 'Automated Readiness Review — codified readiness gates, evidence capture, compliant releases.'
+    text: 'Automated Readiness Review - codified readiness gates, evidence capture, compliant releases.'
+  },
+  {
+    prompt: '>',
+    text: 'Government onboarding automation - reusable workflows for complex platform requests.'
   },
   {
     prompt: '$',
@@ -54,15 +57,12 @@ const scripts: ScriptLine[] = [
 
 const CARET = '▋';
 
-export const TerminalPanel = () => {
+type TerminalPanelProps = {
+  className?: string;
+};
+
+export const TerminalPanel = ({ className }: TerminalPanelProps) => {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const { theme } = useTheme();
-  const storedTheme =
-    typeof window !== 'undefined'
-      ? window.localStorage.getItem('theme-preference')
-      : null;
-  const effectiveTheme = theme || storedTheme || 'dark';
-  const isLight = effectiveTheme === 'light';
   const [displayLines, setDisplayLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState('');
   const [scriptIndex, setScriptIndex] = useState(0);
@@ -123,76 +123,68 @@ export const TerminalPanel = () => {
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-2xl border shadow-glow',
-        'glass border-border/70'
+        'relative overflow-hidden rounded-lg border border-slate-700/70 bg-slate-950 shadow-glow dark:border-border/70',
+        className
       )}
     >
       <div
-        className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent"
+        className="absolute inset-0 bg-gradient-to-br from-accent/10 via-slate-950 to-slate-950"
         aria-hidden
       />
       <div
         className={cn(
-          'flex items-center justify-between px-4 py-2',
-          'border-b border-border/70'
+          'relative flex items-center justify-between px-4 py-2',
+          'border-b border-slate-700/80 bg-slate-100 text-slate-700'
         )}
       >
         <div className="flex items-center gap-2">
           <span className="h-3 w-3 rounded-full bg-red-400" />
           <span className="h-3 w-3 rounded-full bg-amber-300" />
           <span className="h-3 w-3 rounded-full bg-green-400" />
-          <p
-            className={cn(
-              'ml-3 text-xs font-mono',
-              'text-canvas-foreground/70'
-            )}
-          >
+          <p className={cn('ml-3 text-xs font-mono', 'text-slate-600')}>
             terminal.sh
           </p>
         </div>
-        <div className="rounded-full bg-accent/10 px-2 py-1 text-[11px] font-semibold text-accent">
+        <div className="rounded-md bg-accent/10 px-2 py-1 text-[11px] font-semibold text-accent">
           interactive
         </div>
       </div>
       <div
         ref={scrollRef}
         className={cn(
-          'relative h-[340px] overflow-y-auto px-4 py-4 font-mono text-sm',
-          'bg-gradient-to-br from-slate-950/90 via-slate-900/80 to-slate-950/90 text-canvas-foreground'
+          'relative max-h-[430px] min-h-[220px] overflow-y-auto px-4 py-4 font-mono text-sm leading-6 transition-[max-height] duration-300',
+          'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100'
         )}
       >
         <div
           className={cn(
             'absolute inset-0',
-            'bg-[radial-gradient(circle_at_20%_20%,rgba(110,241,245,0.05),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(110,241,245,0.03),transparent_35%)]'
+            'bg-[linear-gradient(120deg,rgba(110,241,245,0.045),transparent_42%),linear-gradient(300deg,rgba(255,196,87,0.035),transparent_38%)]'
           )}
           aria-hidden
         />
         <div className="absolute inset-0 opacity-40">
           <div
             className={cn(
-              'absolute inset-6 rounded-xl border',
+              'absolute inset-6 rounded-lg border',
               'border-accent/10'
             )}
           />
           <div
             className={cn(
-              'absolute inset-8 rounded-xl border',
+              'absolute inset-8 rounded-lg border',
               'border-accent/5'
             )}
           />
         </div>
         <div className="relative space-y-2">
           {displayLines.map((line, idx) => (
-            <p
-              key={`${line}-${idx}`}
-              className={cn('text-canvas-foreground/80')}
-            >
+            <p key={`${line}-${idx}`} className={cn('text-slate-200/85')}>
               {line}
             </p>
           ))}
           {!prefersReducedMotion && (
-            <p className={cn('text-canvas-foreground')}>
+            <p className={cn('text-slate-100')}>
               {currentLine}
               <span
                 className={cn(

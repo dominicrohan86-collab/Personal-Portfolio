@@ -29,11 +29,18 @@ export const Contact = () => {
   };
 
   return (
-    <Section id="contact" title="Contact">
+    <Section
+      id="contact"
+      title="Interested in Working Together?"
+      eyebrow="Contact"
+      intro="Let's build something clean, useful, and reliable."
+    >
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="p-6">
-          <p className="text-sm text-canvas-foreground/80">
-            Ready to collaborate on secure cloud-native systems, authorization workflows, or developer tooling? Send a note—let’s align requirements and move quickly.
+          <p className="text-base leading-8 text-canvas-foreground/80">
+            Ready to collaborate on secure cloud-native systems, authorization
+            workflows, or developer tooling? Send a note and we can align
+            requirements quickly.
           </p>
           <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
             <label className="block text-sm">
@@ -66,51 +73,82 @@ export const Contact = () => {
             {/* Honeypot */}
             <label className="hidden">
               Do not fill this field
-              <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </label>
             <Button type="submit" className="w-full sm:w-auto">
               Send message
             </Button>
-            {submitted ? <p className="text-sm text-accent">{message}</p> : null}
+            {submitted ? (
+              <p className="text-sm text-accent">{message}</p>
+            ) : null}
           </form>
         </Card>
         <div className="space-y-4">
-          <Card className="flex items-center justify-between p-5">
+          <Card className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-accent/70">Email</p>
-              <p className="font-semibold">{profile.email}</p>
+              <p className="text-sm font-semibold uppercase text-accent/70">
+                Email
+              </p>
+              <p className="break-all font-semibold">{profile.email}</p>
             </div>
             <div className="flex items-center gap-2">
               <Button asChild variant="secondary">
-                <a href={`mailto:${profile.email}`} className="flex items-center gap-2">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="flex items-center gap-2"
+                >
                   <Mail size={16} /> Email me
                 </a>
               </Button>
-              <Button type="button" variant="ghost" onClick={copyEmail} aria-label="Copy email">
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={copyEmail}
+                aria-label="Copy email"
+              >
                 <Copy size={16} />
               </Button>
             </div>
-            {copied ? <p className="mt-2 text-xs text-accent">Copied to clipboard</p> : null}
+            {copied ? (
+              <p className="mt-2 text-xs text-accent">Copied to clipboard</p>
+            ) : null}
           </Card>
           <div className="grid gap-4 sm:grid-cols-2">
             <Card className="flex items-center justify-between p-5">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-accent/70">LinkedIn</p>
+                <p className="text-sm font-semibold uppercase text-accent/70">
+                  LinkedIn
+                </p>
                 <p className="font-semibold">Connect professionally</p>
               </div>
               <Button asChild variant="ghost">
-                <a href="https://www.linkedin.com" className="flex items-center gap-2" aria-label="LinkedIn profile">
+                <a
+                  href="https://www.linkedin.com"
+                  className="flex items-center gap-2"
+                  aria-label="LinkedIn profile"
+                >
                   <Linkedin size={16} />
                 </a>
               </Button>
             </Card>
             <Card className="flex items-center justify-between p-5">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-accent/70">GitHub</p>
+                <p className="text-sm font-semibold uppercase text-accent/70">
+                  GitHub
+                </p>
                 <p className="font-semibold">See code samples</p>
               </div>
               <Button asChild variant="ghost">
-                <a href="https://github.com" className="flex items-center gap-2" aria-label="GitHub profile">
+                <a
+                  href="https://github.com"
+                  className="flex items-center gap-2"
+                  aria-label="GitHub profile"
+                >
                   <Github size={16} />
                 </a>
               </Button>

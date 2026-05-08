@@ -10,8 +10,9 @@ type CardProps = {
 export const Card = ({ children, className, interactive }: CardProps) => (
   <div
     className={cn(
-      'glass relative overflow-hidden rounded-2xl border shadow-card',
-      interactive && 'transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow',
+      'glass relative overflow-hidden rounded-lg border shadow-card',
+      interactive &&
+        'transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow',
       className
     )}
   >

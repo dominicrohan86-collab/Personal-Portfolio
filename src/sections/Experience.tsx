@@ -64,7 +64,12 @@ const techIcon = (tech: string): ReactNode => {
 };
 
 export const Experience = () => (
-  <Section id="experience" title="Experience">
+  <Section
+    id="experience"
+    title="Experience"
+    eyebrow="Where this shows up"
+    intro="Outcome-focused engineering across secure cloud products, onboarding automation, and team workflows."
+  >
     <Timeline
       items={profile.experience.map((exp) => ({
         title: exp.company,
@@ -82,7 +87,7 @@ export const Experience = () => (
                 {exp.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="flex items-center gap-1 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-xs font-semibold text-canvas-foreground"
+                    className="flex items-center gap-1 rounded-md border border-border/60 bg-card/60 px-3 py-1 text-xs font-semibold text-canvas-foreground"
                   >
                     {techIcon(tech)}
                     {tech}
